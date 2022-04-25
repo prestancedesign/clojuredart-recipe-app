@@ -1,0 +1,19 @@
+(ns foodrecipe.main
+  (:require ["package:flutter/material.dart" :as m]
+            [cljd.flutter.alpha :as f]))
+
+(defn home-page []
+  (f/widget
+   (m/Scaffold.
+    :appBar (m/AppBar.
+             :title (m/Row.
+                     :children [(m/Icon m.Icons/restaurant_menu)
+                                (m/SizedBox :width 10)
+                                (m/Text. "Food Recipes")])))))
+
+(defn main []
+  (m/runApp
+   (m/MaterialApp.
+    :title "Food recipe"
+    :debugShowCheckedModeBanner false
+    :home (home-page))))
