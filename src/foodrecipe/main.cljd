@@ -24,8 +24,19 @@
                                        (.withOpacity m.Colors/black 0.35)
                                        (m.BlendMode/multiply))
                          :fit m.BoxFit/cover))
-    :child (m/Stack
-            :children [(m/Text. title)]))))
+    :child
+    (m/Stack
+     :children
+     [(m/Align
+       :child (m/Padding
+               :padding (m.EdgeInsets/symmetric
+                         :horizontal 5.0)
+               :child (m/Text. title
+                               :style (m/TextStyle
+                                       :fontSize 19)
+                               :overflow m.TextOverflow/ellipsis
+                               :maxLines 2
+                               :textAlign m.TextAlign/center)))]))))
 
 (defn home-page []
   (f/widget
@@ -45,4 +56,10 @@
    (m/MaterialApp.
     :title "Food recipe"
     :debugShowCheckedModeBanner false
+    :theme (m/ThemeData.
+            :primarySwatch m.Colors/green
+            :primaryColor m.Colors/white
+            :textTheme ^:const (m/TextTheme
+                                :bodyText2 (m/TextStyle
+                                            :color m.Colors/white)))
     :home (home-page))))
