@@ -2,6 +2,31 @@
   (:require ["package:flutter/material.dart" :as m]
             [cljd.flutter.alpha :as f]))
 
+(defn recipe-card [& {:keys [title rating cook-time thumbnail-url]}]
+  (f/widget
+   :context ctx
+   (m/Container.
+    :margin (m.EdgeInsets/symmetric
+             :horizontal 22 :vertical 10)
+    :width (-> (m.MediaQuery/of ctx) .-size .-width)
+    :height 180
+    :decoration (m/BoxDecoration
+                 :color m.Colors/black
+                 :borderRadius (m.BorderRadius/circular 15)
+                 :boxShadow [(m/BoxShadow
+                              :color (.withOpacity m.Colors/black 0.6)
+                              :offset (m/Offset 0.0 10.0)
+                              :blurRadius 10.0
+                              :spreadRadius -6.0)]
+                 :image (m/DecorationImage
+                         :image (m/NetworkImage thumbnail-url)
+                         :colorFilter (m.ColorFilter/mode
+                                       (.withOpacity m.Colors/black 0.35)
+                                       (m.BlendMode/multiply))
+                         :fit m.BoxFit/cover))
+    :child (m/Stack
+            :children [(m/Text. title)]))))
+
 (defn home-page []
   (f/widget
    (m/Scaffold.
@@ -9,7 +34,11 @@
              :title (m/Row.
                      :children [(m/Icon m.Icons/restaurant_menu)
                                 (m/SizedBox :width 10)
-                                (m/Text. "Food Recipes")])))))
+                                (m/Text. "Food Recipes")]))
+    :body (recipe-card :title "My Recipe"
+                       :rating "4.9"
+                       :cook-time "30 min"
+                       :thumbnail-url "https://lh3.googleusercontent.com/ei5eF1LRFkkcekhjdR_8XgOqgdjpomf-rda_vvh7jIauCgLlEWORINSKMRR6I6iTcxxZL9riJwFqKMvK0ixS0xwnRHGMY4I5Zw=s360"))))
 
 (defn main []
   (m/runApp
