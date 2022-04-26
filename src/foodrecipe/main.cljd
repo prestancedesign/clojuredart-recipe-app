@@ -24,50 +24,50 @@
                                        (.withOpacity m.Colors/black 0.35)
                                        (m.BlendMode/multiply))
                          :fit m.BoxFit/cover))
-    :child
-    (m/Stack
-     :children
-     [(m/Align
-       :child (m/Padding
+    :child (m/Stack
+            :children
+            [(f/nest
+              (m/Align)
+              (m/Padding
                :padding (m.EdgeInsets/symmetric
-                         :horizontal 5.0)
-               :child (m/Text. title
-                               :style (m/TextStyle
-                                       :fontSize 19)
-                               :overflow m.TextOverflow/ellipsis
-                               :maxLines 2
-                               :textAlign m.TextAlign/center)))
-      (m/Align
-       :alignment m.Alignment/bottomLeft
-       :child (m/Row
-               :mainAxisAlignment m.MainAxisAlignment/spaceBetween
-               :children
-               [(m/Container
-                 :padding (m.EdgeInsets/all 5)
-                 :margin (m.EdgeInsets/all 10)
-                 :decoration (m/BoxDecoration
-                              :color (.withOpacity m.Colors/black 0.4)
-                              :borderRadius (m.BorderRadius/circular 15))
-                 :child (m/Row
-                         :children
-                         [(m/Icon m.Icons/star
-                                  :color m.Colors/yellow
-                                  :size 18)
-                          (m/SizedBox :width 7)
-                          (m/Text rating)]))
-                (m/Container
-                 :padding (m.EdgeInsets/all 5)
-                 :margin (m.EdgeInsets/all 10)
-                 :decoration (m/BoxDecoration
-                              :color (.withOpacity m.Colors/black 0.4)
-                              :borderRadius (m.BorderRadius/circular 15))
-                 :child (m/Row
-                         :children
-                         [(m/Icon m.Icons/schedule
-                                  :color m.Colors/white
-                                  :size 18)
-                          (m/SizedBox :width 7)
-                          (m/Text cook-time)]))]))]))))
+                         :horizontal 5.0))
+              (m/Text. title
+                       :style (m/TextStyle
+                               :fontSize 19)
+                       :overflow m.TextOverflow/ellipsis
+                       :maxLines 2
+                       :textAlign m.TextAlign/center))
+             (m/Align
+              :alignment m.Alignment/bottomLeft
+              :child (m/Row
+                      :mainAxisAlignment m.MainAxisAlignment/spaceBetween
+                      :children
+                      [(m/Container
+                        :padding (m.EdgeInsets/all 5)
+                        :margin (m.EdgeInsets/all 10)
+                        :decoration (m/BoxDecoration
+                                     :color (.withOpacity m.Colors/black 0.4)
+                                     :borderRadius (m.BorderRadius/circular 15))
+                        :child (m/Row
+                                :children
+                                [(m/Icon m.Icons/star
+                                         :color m.Colors/yellow
+                                         :size 18)
+                                 (m/SizedBox :width 7)
+                                 (m/Text rating)]))
+                       (m/Container
+                        :padding (m.EdgeInsets/all 5)
+                        :margin (m.EdgeInsets/all 10)
+                        :decoration (m/BoxDecoration
+                                     :color (.withOpacity m.Colors/black 0.4)
+                                     :borderRadius (m.BorderRadius/circular 15))
+                        :child (m/Row
+                                :children
+                                [(m/Icon m.Icons/schedule
+                                         :color m.Colors/white
+                                         :size 18)
+                                 (m/SizedBox :width 7)
+                                 (m/Text cook-time)]))]))]))))
 
 (defn home-page []
   (f/widget
