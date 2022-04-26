@@ -54,7 +54,20 @@
                                   :color m.Colors/yellow
                                   :size 18)
                           (m/SizedBox :width 7)
-                          (m/Text rating)]))]))]))))
+                          (m/Text rating)]))
+                (m/Container
+                 :padding (m.EdgeInsets/all 5)
+                 :margin (m.EdgeInsets/all 10)
+                 :decoration (m/BoxDecoration
+                              :color (.withOpacity m.Colors/black 0.4)
+                              :borderRadius (m.BorderRadius/circular 15))
+                 :child (m/Row
+                         :children
+                         [(m/Icon m.Icons/schedule
+                                  :color m.Colors/white
+                                  :size 18)
+                          (m/SizedBox :width 7)
+                          (m/Text cook-time)]))]))]))))
 
 (defn home-page []
   (f/widget
@@ -64,7 +77,7 @@
                      :children [(m/Icon m.Icons/restaurant_menu)
                                 (m/SizedBox :width 10)
                                 (m/Text. "Food Recipes")]))
-    :body (recipe-card :title "My Recipe"
+    :body (recipe-card :title "Chicken Masala"
                        :rating "4.9"
                        :cook-time "30 min"
                        :thumbnail-url "https://lh3.googleusercontent.com/ei5eF1LRFkkcekhjdR_8XgOqgdjpomf-rda_vvh7jIauCgLlEWORINSKMRR6I6iTcxxZL9riJwFqKMvK0ixS0xwnRHGMY4I5Zw=s360"))))
