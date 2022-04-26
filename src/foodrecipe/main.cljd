@@ -36,7 +36,25 @@
                                        :fontSize 19)
                                :overflow m.TextOverflow/ellipsis
                                :maxLines 2
-                               :textAlign m.TextAlign/center)))]))))
+                               :textAlign m.TextAlign/center)))
+      (m/Align
+       :alignment m.Alignment/bottomLeft
+       :child (m/Row
+               :mainAxisAlignment m.MainAxisAlignment/spaceBetween
+               :children
+               [(m/Container
+                 :padding (m.EdgeInsets/all 5)
+                 :margin (m.EdgeInsets/all 10)
+                 :decoration (m/BoxDecoration
+                              :color (.withOpacity m.Colors/black 0.4)
+                              :borderRadius (m.BorderRadius/circular 15))
+                 :child (m/Row
+                         :children
+                         [(m/Icon m.Icons/star
+                                  :color m.Colors/yellow
+                                  :size 18)
+                          (m/SizedBox :width 7)
+                          (m/Text rating)]))]))]))))
 
 (defn home-page []
   (f/widget
