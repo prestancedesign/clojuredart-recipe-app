@@ -6,78 +6,78 @@
   (f/widget
    :context ctx
    (m/Container.
-    :margin (m.EdgeInsets/symmetric
-             :horizontal 22 :vertical 10)
-    :width (-> (m.MediaQuery/of ctx) .-size .-width)
-    :height 180
-    :decoration (m/BoxDecoration
-                 :color m.Colors/black
-                 :borderRadius (m.BorderRadius/circular 15)
-                 :boxShadow [(m/BoxShadow
-                              :color (.withOpacity m.Colors/black 0.6)
-                              :offset (m/Offset 0.0 10.0)
-                              :blurRadius 10.0
-                              :spreadRadius -6.0)]
-                 :image (m/DecorationImage
-                         :image (m/NetworkImage thumbnail-url)
-                         :colorFilter (m.ColorFilter/mode
+    .margin (m.EdgeInsets/symmetric
+             .horizontal 22 .vertical 10)
+    .width (-> (m.MediaQuery/of ctx) .-size .-width)
+    .height 180
+    .decoration (m/BoxDecoration
+                 .color m.Colors/black
+                 .borderRadius (m.BorderRadius/circular 15)
+                 .boxShadow [(m/BoxShadow
+                              .color (.withOpacity m.Colors/black 0.6)
+                              .offset (m/Offset 0.0 10.0)
+                              .blurRadius 10.0
+                              .spreadRadius -6.0)]
+                 .image (m/DecorationImage
+                         .image (m/NetworkImage thumbnail-url)
+                         .colorFilter (m.ColorFilter/mode
                                        (.withOpacity m.Colors/black 0.35)
                                        (m.BlendMode/multiply))
-                         :fit m.BoxFit/cover))
-    :child (m/Stack
-            :children
+                         .fit m.BoxFit/cover))
+    .child (m/Stack
+            .children
             [(f/nest
               (m/Align)
               (m/Padding
-               :padding (m.EdgeInsets/symmetric
-                         :horizontal 5.0))
+               .padding (m.EdgeInsets/symmetric
+                         .horizontal 5.0))
               (m/Text. title
-                       :style (m/TextStyle
-                               :fontSize 19)
-                       :overflow m.TextOverflow/ellipsis
-                       :maxLines 2
-                       :textAlign m.TextAlign/center))
+                       .style (m/TextStyle
+                               .fontSize 19)
+                       .overflow m.TextOverflow/ellipsis
+                       .maxLines 2
+                       .textAlign m.TextAlign/center))
              (m/Align
-              :alignment m.Alignment/bottomLeft
-              :child (m/Row
-                      :mainAxisAlignment m.MainAxisAlignment/spaceBetween
-                      :children
+              .alignment m.Alignment/bottomLeft
+              .child (m/Row
+                      .mainAxisAlignment m.MainAxisAlignment/spaceBetween
+                      .children
                       [(m/Container
-                        :padding (m.EdgeInsets/all 5)
-                        :margin (m.EdgeInsets/all 10)
-                        :decoration (m/BoxDecoration
-                                     :color (.withOpacity m.Colors/black 0.4)
-                                     :borderRadius (m.BorderRadius/circular 15))
-                        :child (m/Row
-                                :children
+                        .padding (m.EdgeInsets/all 5)
+                        .margin (m.EdgeInsets/all 10)
+                        .decoration (m/BoxDecoration
+                                     .color (.withOpacity m.Colors/black 0.4)
+                                     .borderRadius (m.BorderRadius/circular 15))
+                        .child (m/Row
+                                .children
                                 [(m/Icon m.Icons/star
-                                         :color m.Colors/yellow
-                                         :size 18)
-                                 (m/SizedBox :width 7)
+                                         .color m.Colors/yellow
+                                         .size 18)
+                                 (m/SizedBox .width 7)
                                  (m/Text rating)]))
                        (m/Container
-                        :padding (m.EdgeInsets/all 5)
-                        :margin (m.EdgeInsets/all 10)
-                        :decoration (m/BoxDecoration
-                                     :color (.withOpacity m.Colors/black 0.4)
-                                     :borderRadius (m.BorderRadius/circular 15))
-                        :child (m/Row
-                                :children
+                        .padding (m.EdgeInsets/all 5)
+                        .margin (m.EdgeInsets/all 10)
+                        .decoration (m/BoxDecoration
+                                     .color (.withOpacity m.Colors/black 0.4)
+                                     .borderRadius (m.BorderRadius/circular 15))
+                        .child (m/Row
+                                .children
                                 [(m/Icon m.Icons/schedule
-                                         :color m.Colors/white
-                                         :size 18)
-                                 (m/SizedBox :width 7)
+                                         .color m.Colors/white
+                                         .size 18)
+                                 (m/SizedBox .width 7)
                                  (m/Text cook-time)]))]))]))))
 
 (defn home-page []
   (f/widget
    (m/Scaffold.
-    :appBar (m/AppBar.
-             :title (m/Row.
-                     :children [(m/Icon m.Icons/restaurant_menu)
-                                (m/SizedBox :width 10)
+    .appBar (m/AppBar.
+             .title (m/Row.
+                     .children [(m/Icon m.Icons/restaurant_menu)
+                                (m/SizedBox .width 10)
                                 (m/Text. "Food Recipes")]))
-    :body (recipe-card :title "Chicken Masala"
+    .body (recipe-card :title "Chicken Masala"
                        :rating "4.9"
                        :cook-time "30 min"
                        :thumbnail-url "https://lh3.googleusercontent.com/ei5eF1LRFkkcekhjdR_8XgOqgdjpomf-rda_vvh7jIauCgLlEWORINSKMRR6I6iTcxxZL9riJwFqKMvK0ixS0xwnRHGMY4I5Zw=s360"))))
@@ -85,12 +85,12 @@
 (defn main []
   (m/runApp
    (m/MaterialApp.
-    :title "Food recipe"
-    :debugShowCheckedModeBanner false
-    :theme (m/ThemeData.
-            :primarySwatch m.Colors/green
-            :primaryColor m.Colors/white
-            :textTheme ^:const (m/TextTheme
-                                :bodyText2 (m/TextStyle
-                                            :color m.Colors/white)))
-    :home (home-page))))
+    .title "Food recipe"
+    .debugShowCheckedModeBanner false
+    .theme (m/ThemeData.
+            .primarySwatch m.Colors/green
+            .primaryColor m.Colors/white
+            .textTheme (m/TextTheme
+                        .bodyText2 (m/TextStyle
+                                    .color m.Colors/white)))
+    .home (home-page))))
