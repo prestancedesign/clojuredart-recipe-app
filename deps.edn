@@ -1,5 +1,7 @@
 {:paths ["src"] ; where your cljd files are
- :deps {org.clojure/clojure {:mvn/version "1.10.1"}
-        tensegritics/clojuredart
-        {:git/url "git@github.com:tensegritics/ClojureDart.git"
-         :sha "b49677deaee9c2cc46c165975004d297fe5cabc8"}}}
+ :deps {tensegritics/clojuredart
+        {:git/url "https://github.com/tensegritics/ClojureDart.git"
+         :sha "1c519109b5dda0c24badc7bea3b89b52f3d3db8f"}}
+ :aliases {:cljd {:main-opts ["-m" "cljd.build"]}}
+ :cljd/opts {:kind :flutter
+             :main foodrecipe.main}}
