@@ -1,14 +1,15 @@
 (ns foodrecipe.main
   (:require ["package:flutter/material.dart" :as m]
-            [cljd.flutter.alpha :as f]))
+            [cljd.flutter.alpha2 :as f]))
 
-(defn recipe-card [& {:keys [title rating cook-time thumbnail-url]}]
+(defn recipe-card [{:keys [title rating cook-time thumbnail-url]}]
   (f/widget
    :context ctx
    (m/Container.
     .margin (m.EdgeInsets/symmetric
              .horizontal 22 .vertical 10)
     .width (-> (m.MediaQuery/of ctx) .-size .-width)
+    ;; TODO : Corriger
     .height 180
     .decoration (m/BoxDecoration
                  .color m.Colors/black
@@ -26,7 +27,7 @@
                          .fit m.BoxFit/cover))
     .child (m/Stack
             .children
-            [(f/nest
+            [(f/widget
               (m/Align)
               (m/Padding
                .padding (m.EdgeInsets/symmetric
@@ -77,13 +78,13 @@
                      .children [(m/Icon m.Icons/restaurant_menu)
                                 (m/SizedBox .width 10)
                                 (m/Text. "Food Recipes")]))
-    .body (recipe-card :title "Chicken Masala"
-                       :rating "4.9"
-                       :cook-time "30 min"
-                       :thumbnail-url "https://lh3.googleusercontent.com/ei5eF1LRFkkcekhjdR_8XgOqgdjpomf-rda_vvh7jIauCgLlEWORINSKMRR6I6iTcxxZL9riJwFqKMvK0ixS0xwnRHGMY4I5Zw=s360"))))
+    .body (recipe-card {:title "Chicken Masala"
+                        :rating "4.9"
+                        :cook-time "30 min"
+                        :thumbnail-url "https://lh3.googleusercontent.com/ei5eF1LRFkkcekhjdR_8XgOqgdjpomf-rda_vvh7jIauCgLlEWORINSKMRR6I6iTcxxZL9riJwFqKMvK0ixS0xwnRHGMY4I5Zw=s360"}))))
 
 (defn main []
-  (m/runApp
+  (f/run
    (m/MaterialApp.
     .title "Food recipe"
     .debugShowCheckedModeBanner false
